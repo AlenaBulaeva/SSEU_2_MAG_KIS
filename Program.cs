@@ -9,30 +9,45 @@ namespace Maximum
         static void Main(string[] args)
         {
             //ввод исходных значений
-            int A, B;
-            if (int.TryParse(Console.ReadLine(), out A))
+            int A, B, C;
+            if (int.TryParse(Console.ReadLine(), out A) && int.TryParse(Console.ReadLine(), out B) && int.TryParse(Console.ReadLine(), out C))
             {
-                if (int.TryParse(Console.ReadLine(), out B))
+                //максимальное значение
+                int Max;
+                //если А >= B
+                if (A >= B)
                 {
-                    //максимальное значение
-                    int Max;
-                    //если больше А
-                    if (A >= B)
+                    //и если А >= С
+                    if (A >= C)
                     {
+                        //то максимальное - А
                         Max = A;
                     }
-                    //иначе - больше В
+                    //иначе - C > A
                     else
                     {
-                        Max = B;
-                    };
-                    //вывод результата
-                    Console.WriteLine("Максимальное = " + Max);
+                        //максимальное - С
+                        Max = C;
+                    }
                 }
-                else 
+                //иначе - больше В
+                else
                 {
-                    Console.WriteLine("Неверное значение! Нужно ввести целое число.");
+                    // и если B >= C
+                    if (B >= C)
+                    {
+                        //то максимальное В
+                        Max = B;
+                    }
+                    // иначе - С > В
+                    else
+                    {
+                        // максимальное - С
+                        Max = C;
+                    }
                 };
+                //вывод результата
+                Console.WriteLine("Максимальное = " + Max);
             }
             else
             {
@@ -40,7 +55,6 @@ namespace Maximum
             };
             //завершение программы
             Console.ReadKey();
-            }
+        }
     }
 }
-
