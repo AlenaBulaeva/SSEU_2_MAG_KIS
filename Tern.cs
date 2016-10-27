@@ -13,8 +13,7 @@ namespace Maximum
             if (int.TryParse(Console.ReadLine(), out A) && int.TryParse(Console.ReadLine(), out B) && int.TryParse(Console.ReadLine(), out C))
             {
                 //максимальное значение
-                int Max = (A >= B) ? A : B;
-                Max = (Max >= C) ? Max : C;
+                int Max = ((Max = (A >= B) ? A : B) >= C) ? Max : C;
                 //вывод результата
                 Console.WriteLine("Максимальное = " + Max);
             }
