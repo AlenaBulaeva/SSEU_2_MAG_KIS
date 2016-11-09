@@ -15,22 +15,23 @@ namespace SumOfNumbers
             if (int.TryParse(Console.ReadLine(), out N))
             {
                 int Sum = 0; //сумма чисел
+                int i = 0;
                 //N раз
-                for (int i = 0; i < N; i++)
+                while (i < N)
                 {
+                    Console.Write("Введите число: ");
                     //если введено корректное число
-                    Console.WriteLine("Введите число:");
                     if (int.TryParse(Console.ReadLine(), out x))
                     {
                         Sum += x; //добавить к сумме
                         /* DEBUG INFO
                         Console.WriteLine("{" + Sum + "}");
                         //*/
+                        i++;
                     }
                     else
                     {
                         Console.WriteLine("Неверное значение! Введите целое значение!");
-                        i--;
                     };
                 };
                 //вывод результата
