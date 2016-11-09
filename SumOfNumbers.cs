@@ -17,7 +17,7 @@ namespace SumOfNumbers
                 int Sum = 0; //сумма чисел
                 int i = 0;
                 //N раз
-                while (i < N)
+                do
                 {
                     Console.Write("Введите число: ");
                     //если введено корректное число
@@ -33,7 +33,8 @@ namespace SumOfNumbers
                     {
                         Console.WriteLine("Неверное значение! Введите целое значение!");
                     };
-                };
+                }
+                while (i < N);
                 //вывод результата
                 Console.WriteLine("Сумма: " + Sum);
             };
@@ -42,3 +43,4 @@ namespace SumOfNumbers
         }
     }
 }
+
