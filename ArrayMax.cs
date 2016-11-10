@@ -18,6 +18,7 @@ namespace ArrayMax
             //инициализаци€ массива
             int[] a = new int[n];
             //ввод значений массива
+            //поиск максимального значени€
             int i = 0;
             while (i < n)
             {
@@ -31,16 +32,19 @@ namespace ArrayMax
                     Console.WriteLine("¬ведите целое число!");
                 };
             };
-            int max = a[0];
+            //поиск максимального значени
+            int max = int.MinValue;
+            int iMax = 0;
             for (i = 1; i < a.Length; i++)
             {
                 if (a[i] > max)
                 {
                     max = a[i];
+                    iMax = i;
                 };
             };
             //вывод результата
-            Console.WriteLine("ћаксимальное значение: " + max);
+            Console.WriteLine("ћаксимальное значение a[" + iMax + "] = " + max);
             Console.ReadKey();
         }
     }
