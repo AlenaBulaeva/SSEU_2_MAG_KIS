@@ -42,20 +42,23 @@ namespace Lek3Zad3
                 if (a[i] == min)
                 {
                     iMin = iMin + "," + i;
-                    a[i] = 0;
-
                 }
                 else if (a[i] < min)
                 {
                     min = a[i];
+                    iMin = i.ToString();
                 
                 };
             };
             //вывод результата
             Console.WriteLine("Минимальное значение a[" + iMin + "] = " + min);
+            Console.WriteLine("Нажмите на Enter, чтобы увидеть новый массив");
+            Console.ReadKey();
             for (i = 0; i < a.Length; i++)
             {
-                Console.Write(a[i]);
+                 if (a[i] == min)
+                    a[i] = 0;
+                 Console.WriteLine(a[i]);            
             };
             Console.ReadKey();
         }
