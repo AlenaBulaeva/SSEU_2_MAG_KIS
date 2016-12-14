@@ -108,7 +108,7 @@ namespace Student
                    strOzenki + "\r\n" +
                    "Средний балл: " + SredniyBall();
         }
-        public void PerevestiNaSledKurs()
+        public virtual void PerevestiNaSledKurs()
         {
             // увеличить курс на 1
                 Kurs += 1;
@@ -221,6 +221,13 @@ namespace Student
                 + stipendia; //и стипендии
         }
 
+        public override void PerevestiNaSledKurs()
+        {
+            if (KolvoNesdash(KolvoSemestrov()) < 3)
+            {
+                base.PerevestiNaSledKurs();
+            };
+        }
     }
 
     class StudentPlat : Student
@@ -260,6 +267,24 @@ namespace Student
                 + "Обучение на платной основе\r\n" //записи о платном обучении
                 + "Стоимость обучения: " + stoimostObucheniya + " руб.\r\n"
                 + "Задолженность: " + Dolg() + " руб.";//и стипендии
+        }
+
+        public void OplatitObuchenie(int kolvoSemestrov)
+        {
+            oplacheno += kolvoSemestrov * stoimostObucheniya;
+        }
+
+        public void OplatitObuchenie()
+        {
+            oplacheno += Dolg();
+        }
+
+        public override void PerevestiNaSledKurs()
+        {
+            if (Dolg() == 0)
+            {
+                base.PerevestiNaSledKurs();
+            };
         }
     }
 }
