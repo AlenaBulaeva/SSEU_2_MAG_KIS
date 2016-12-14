@@ -37,11 +37,11 @@ namespace Student
 
         private void numericUpDownKurs_ValueChanged(object sender, EventArgs e)
         {
-            student1.kurs = (int)numericUpDownKurs.Value; //сохранить курс
+            student1.Kurs = (int)numericUpDownKurs.Value; //сохранить курс
             //вывод списка семестров
             comboBoxSemestr.Items.Clear(); //очистка списка
             //перебираем курсы с 1 до того, на котором учится студент
-            for (int k = 1; k <= student1.kurs; k++)
+            for (int k = 1; k <= student1.Kurs; k++)
             {
                 int s1 = 2 * k - 1; //номер осеннего семестра на курсе k
                 int s2 = 2 * k; //номер весеннего семестра на курсе k
@@ -84,35 +84,35 @@ namespace Student
         private void numericUpDownEkz1_ValueChanged(object sender, EventArgs e)
         {
             //записать оценку в массив, приведя к типу byte
-            student1.ozenki[comboBoxSemestr.SelectedIndex, 0] = (byte)numericUpDownEkz1.Value;
+            student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 0] = (byte)numericUpDownEkz1.Value;
             textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
         }
 
         private void numericUpDownEkz2_ValueChanged(object sender, EventArgs e)
         {
             //записать оценку в массив, приведя к типу byte
-            student1.ozenki[comboBoxSemestr.SelectedIndex, 1] = (byte)numericUpDownEkz2.Value;
+            student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 2] = (byte)numericUpDownEkz2.Value;
             textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
         }
 
         private void numericUpDownEkz3_ValueChanged(object sender, EventArgs e)
         {
             //записать оценку в массив, приведя к типу byte
-            student1.ozenki[comboBoxSemestr.SelectedIndex, 2] = (byte)numericUpDownEkz3.Value;
+            student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 3] = (byte)numericUpDownEkz3.Value;
             textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
         }
 
         private void numericUpDownEkz4_ValueChanged(object sender, EventArgs e)
         {
             //записать оценку в массив, приведя к типу byte
-            student1.ozenki[comboBoxSemestr.SelectedIndex, 3] = (byte)numericUpDownEkz4.Value;
+            student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 4] = (byte)numericUpDownEkz4.Value;
             textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
         }
 
         private void numericUpDownEkz5_ValueChanged(object sender, EventArgs e)
         {
             //записать оценку в массив, приведя к типу byte
-            student1.ozenki[comboBoxSemestr.SelectedIndex, 4] = (byte)numericUpDownEkz5.Value;
+            student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 5] = (byte)numericUpDownEkz5.Value;
             textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
         }
 
@@ -120,7 +120,7 @@ namespace Student
         {
             //вывести оценки за выбранный семестр
             //если небыло экзамена
-            if (student1.ozenki[comboBoxSemestr.SelectedIndex, 0] == 0)
+            if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 1] == 0)
             {
                 checkBoxEkz1.Checked = false; //снять флажок
             }
@@ -128,7 +128,7 @@ namespace Student
             {
                 checkBoxEkz1.Checked = true; //установить флажок
                 //если неявка
-                if (student1.ozenki[comboBoxSemestr.SelectedIndex, 0] == 1)
+                if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 1] == 1)
                 {
                     checkBoxEkz1neyavka.Checked = true; //установить флажок
                 }
@@ -136,11 +136,11 @@ namespace Student
                 {
                     checkBoxEkz1neyavka.Checked = false; //снять флажок
                     //вывести оценку
-                    numericUpDownEkz1.Value = student1.ozenki[comboBoxSemestr.SelectedIndex, 0];
+                    numericUpDownEkz1.Value = student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 1];
                 };
             };
             //если небыло экзамена
-            if (student1.ozenki[comboBoxSemestr.SelectedIndex, 1] == 0)
+            if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 2] == 0)
             {
                 checkBoxEkz2.Checked = false; //снять флажок
             }
@@ -148,7 +148,7 @@ namespace Student
             {
                 checkBoxEkz2.Checked = true; //установить флажок
                 //если неявка
-                if (student1.ozenki[comboBoxSemestr.SelectedIndex, 1] == 1)
+                if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 2] == 1)
                 {
                     checkBoxEkz2neyavka.Checked = true; //установить флажок
                 }
@@ -156,11 +156,11 @@ namespace Student
                 {
                     checkBoxEkz2neyavka.Checked = false; //снять флажок
                     //вывести оценку
-                    numericUpDownEkz2.Value = student1.ozenki[comboBoxSemestr.SelectedIndex, 1];
+                    numericUpDownEkz2.Value = student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 2];
                 };
             };
             //если небыло экзамена
-            if (student1.ozenki[comboBoxSemestr.SelectedIndex, 2] == 0)
+            if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 3] == 0)
             {
                 checkBoxEkz3.Checked = false; //снять флажок
             }
@@ -168,7 +168,7 @@ namespace Student
             {
                 checkBoxEkz3.Checked = true; //установить флажок
                 //если неявка
-                if (student1.ozenki[comboBoxSemestr.SelectedIndex, 2] == 1)
+                if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 3] == 1)
                 {
                     checkBoxEkz3neyavka.Checked = true; //установить флажок
                 }
@@ -176,11 +176,11 @@ namespace Student
                 {
                     checkBoxEkz3neyavka.Checked = false; //снять флажок
                     //вывести оценку
-                    numericUpDownEkz3.Value = student1.ozenki[comboBoxSemestr.SelectedIndex, 2];
+                    numericUpDownEkz3.Value = student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 3];
                 };
             };
             //если небыло экзамена
-            if (student1.ozenki[comboBoxSemestr.SelectedIndex, 3] == 0)
+            if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 4] == 0)
             {
                 checkBoxEkz4.Checked = false; //снять флажок
             }
@@ -188,7 +188,7 @@ namespace Student
             {
                 checkBoxEkz4.Checked = true; //установить флажок
                 //если неявка
-                if (student1.ozenki[comboBoxSemestr.SelectedIndex, 3] == 1)
+                if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 4] == 1)
                 {
                     checkBoxEkz4neyavka.Checked = true; //установить флажок
                 }
@@ -196,11 +196,11 @@ namespace Student
                 {
                     checkBoxEkz4neyavka.Checked = false; //снять флажок
                     //вывести оценку
-                    numericUpDownEkz4.Value = student1.ozenki[comboBoxSemestr.SelectedIndex, 3];
+                    numericUpDownEkz4.Value = student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 4];
                 };
             };
             //если небыло экзамена
-            if (student1.ozenki[comboBoxSemestr.SelectedIndex, 4] == 0)
+            if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 5] == 0)
             {
                 checkBoxEkz5.Checked = false; //снять флажок
             }
@@ -208,7 +208,7 @@ namespace Student
             {
                 checkBoxEkz5.Checked = true; //установить флажок
                 //если неявка
-                if (student1.ozenki[comboBoxSemestr.SelectedIndex, 4] == 1)
+                if (student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 5] == 1)
                 {
                     checkBoxEkz5neyavka.Checked = true; //установить флажок
                 }
@@ -216,7 +216,7 @@ namespace Student
                 {
                     checkBoxEkz5neyavka.Checked = false; //снять флажок
                     //вывести оценку
-                    numericUpDownEkz5.Value = student1.ozenki[comboBoxSemestr.SelectedIndex, 4];
+                    numericUpDownEkz5.Value = student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 5];
                 };
             };
         }
@@ -447,14 +447,14 @@ namespace Student
             //выполнить перевод
             student1.PerevestiNaSledKurs();
             //вывести на форму
-            numericUpDownKurs.Value = student1.kurs;
+            numericUpDownKurs.Value = student1.Kurs;
             textBoxStudentInfo.Text = student1.ToString();
         }
 
         private void numericUpDownEkz1_ValueChanged_1(object sender, EventArgs e)
         {
             //записать оценку в массив, приведя к типу byte
-            student1.ozenki[comboBoxSemestr.SelectedIndex, 0] = (byte)numericUpDownEkz1.Value;
+            student1.Ozenki[comboBoxSemestr.SelectedIndex + 1, 1] = (byte)numericUpDownEkz1.Value;
             textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
         }
 
@@ -479,6 +479,6 @@ namespace Student
                 textBoxStudentInfo.Text = student1.ToString(); //вывести на экран
             } 
         }
-
+        
     }
 }
